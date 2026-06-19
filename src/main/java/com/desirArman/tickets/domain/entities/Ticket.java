@@ -1,4 +1,4 @@
-package com.desirArman.tickets.domain;
+package com.desirArman.tickets.domain.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -50,18 +50,18 @@ public class Ticket {
     private LocalDateTime createdAt;
 
     @LastModifiedDate
-    @Column(name = "updated_at", nullable = false)
-    private LocalDateTime updatedAt;
+    @Column(name = "modified_at", nullable = false)
+    private LocalDateTime modifiedAt;
 
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Ticket ticket = (Ticket) o;
-        return Objects.equals(id, ticket.id) && status == ticket.status && Objects.equals(createdAt, ticket.createdAt) && Objects.equals(updatedAt, ticket.updatedAt);
+        return Objects.equals(id, ticket.id) && status == ticket.status && Objects.equals(createdAt, ticket.createdAt) && Objects.equals(modifiedAt, ticket.modifiedAt);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, status, createdAt, updatedAt);
+        return Objects.hash(id, status, createdAt, modifiedAt);
     }
 }

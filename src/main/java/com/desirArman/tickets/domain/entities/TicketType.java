@@ -1,4 +1,4 @@
-package com.desirArman.tickets.domain;
+package com.desirArman.tickets.domain.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -30,6 +30,9 @@ public class TicketType {
 
     @Column(name = "price", nullable = false)
     private Double price;
+
+    @Column(name = "description")
+    private String description;
 
     @Column(name = "total_available")
     private Integer totalAvailable;

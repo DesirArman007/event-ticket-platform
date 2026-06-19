@@ -1,4 +1,4 @@
-package com.desirArman.tickets.domain;
+package com.desirArman.tickets.domain.entities;
 
 
 import jakarta.persistence.*;
