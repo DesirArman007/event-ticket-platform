@@ -1,8 +1,5 @@
 package com.desirArman.tickets.controllers;
 
-<<<<<<< Updated upstream
-public class EventController {
-=======
 import com.desirArman.tickets.domain.CreateEventRequest;
 import com.desirArman.tickets.domain.dtos.CreateEventRequestDto;
 import com.desirArman.tickets.domain.dtos.CreateEventResponseDto;
@@ -43,5 +40,4 @@ public class EventController {
 
         return new ResponseEntity<>(createEventResponseDto, HttpStatus.CREATED);
     }
->>>>>>> Stashed changes
 }
