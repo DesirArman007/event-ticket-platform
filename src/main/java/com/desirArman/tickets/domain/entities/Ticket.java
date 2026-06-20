@@ -39,10 +39,12 @@ public class Ticket {
 
     // Validation
     @OneToMany(mappedBy = "ticket", cascade = CascadeType.ALL)
+    @Builder.Default
     private List<TicketValidation> validations = new ArrayList<>();
 
     // QrCode
     @OneToMany(mappedBy = "ticket", cascade = CascadeType.ALL)
+    @Builder.Default
     private List<QrCode> qrCodes = new ArrayList<>();
 
     @CreatedDate

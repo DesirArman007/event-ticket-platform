@@ -12,7 +12,7 @@ import java.util.Objects;
 import java.util.UUID;
 
 @Entity
-@Table(name = "tickets")
+@Table(name = "ticket_types")
 @Getter
 @Setter
 @AllArgsConstructor
@@ -39,6 +39,7 @@ public class TicketType {
 
     // Tickets
     @OneToMany(mappedBy = "ticketType", cascade = CascadeType.ALL)
+    @Builder.Default
     private List<Ticket> tickets = new ArrayList<>();
 
     @ManyToOne(fetch = FetchType.LAZY)
