@@ -1,8 +1,5 @@
 package com.desirArman.tickets.domain.dtos;
 
-<<<<<<< Updated upstream
-public class CreateEventRequestDto {
-=======
 import com.desirArman.tickets.domain.entities.EventStatusEnum;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
@@ -38,5 +35,4 @@ public class CreateEventRequestDto {
     @NotNull(message = "At least one ticket type is required")
     @Valid
     private List<CreateTicketTypeRequestDto> ticketTypes;
->>>>>>> Stashed changes
 }

@@ -1,8 +1,6 @@
 package com.desirArman.tickets.domain.dtos;
 
-<<<<<<< Updated upstream
-public class CreateTicketTypeRequestDto {
-=======
+
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PositiveOrZero;
@@ -25,5 +23,5 @@ public class CreateTicketTypeRequestDto {
     private String description;
 
     private Integer totalAvailable;
->>>>>>> Stashed changes
 }
+

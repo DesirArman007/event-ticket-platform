@@ -1,8 +1,5 @@
 package com.desirArman.tickets.services.impl;
 
-<<<<<<< Updated upstream
-public class EventServiceImpl {
-=======
 import com.desirArman.tickets.domain.CreateEventRequest;
 import com.desirArman.tickets.domain.entities.Event;
 import com.desirArman.tickets.domain.entities.TicketType;
@@ -12,6 +9,8 @@ import com.desirArman.tickets.repositories.EventRepository;
 import com.desirArman.tickets.repositories.UserRepository;
 import com.desirArman.tickets.services.EventService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -32,8 +31,6 @@ public class EventServiceImpl implements EventService {
                 .orElseThrow(() -> new UserNotFoundException(
                         String.format("User with ID '%s' not found", organizerId)));
 
-
-
         Event eventToCreate = new Event();
         eventToCreate.setName(eventRequest.getName());
         eventToCreate.setVenue(eventRequest.getVenue());
@@ -43,7 +40,6 @@ public class EventServiceImpl implements EventService {
         eventToCreate.setSaleEnd(eventRequest.getSalesEnd());
         eventToCreate.setStatus(eventRequest.getStatus());
         eventToCreate.setOrganizer(organizer);
-
 
         List<TicketType> ticketTypeList = eventRequest.getTicketTypes().stream().map(
                 ticketType -> {
@@ -60,5 +56,9 @@ public class EventServiceImpl implements EventService {
         eventToCreate.setTicketTypes(ticketTypeList);
         return eventRepository.save(eventToCreate);
     }
->>>>>>> Stashed changes
+
+    @Override
+    public Page<Event> listEventsforOrganizer(UUID organizerId, Pageable pageable) {
+        return eventRepository.findByOrganizerId(organizerId, pageable);
+    }
 }

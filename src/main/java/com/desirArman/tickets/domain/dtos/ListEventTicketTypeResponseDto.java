@@ -1,25 +1,24 @@
 package com.desirArman.tickets.domain.dtos;
 
+import jdk.jfr.Name;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CreateTicketTypeResponseDto {
+public class ListEventTicketTypeResponseDto {
 
     private UUID id;
 
     private String name;
 
     private Double price;
-    private String description;
-    private Integer totalAvailable;
-    private LocalDateTime createdAt;
-    private LocalDateTime modifiedAt;
 
+    private String description;
+
+    private Integer totalAvailable;
 }

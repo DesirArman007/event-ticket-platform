@@ -1,8 +1,5 @@
 package com.desirArman.tickets.controllers;
 
-<<<<<<< Updated upstream
-public class GlobalExceptionHandler {
-=======
 import com.desirArman.tickets.domain.dtos.ErrorDto;
 import com.desirArman.tickets.exceptions.UserNotFoundException;
 import jakarta.validation.ConstraintViolationException;
@@ -12,12 +9,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
-import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import java.security.PublicKey;
 import java.util.List;
 
 @RestControllerAdvice
@@ -46,8 +41,8 @@ public class GlobalExceptionHandler {
         BindingResult bindingResult = ex.getBindingResult();
         List<FieldError> fieldErrors = bindingResult.getFieldErrors();
         String errorMsg = fieldErrors.stream().findFirst().map(
-                fieldError -> fieldError.getField() +":"+ fieldError.getDefaultMessage())
-                        .orElse("Validation error occurred");
+                        fieldError -> fieldError.getField() +":"+ fieldError.getDefaultMessage())
+                .orElse("Validation error occurred");
 
         errorDto.setError(errorMsg);
 
@@ -64,8 +59,8 @@ public class GlobalExceptionHandler {
         String errorMsg = ex.getConstraintViolations()
                 .stream()
                 .findFirst().map(
-                volation -> volation.getPropertyPath() + ":" + volation.getMessage())
-                        .orElse("Constraint violation occurred");
+                        volation -> volation.getPropertyPath() + ":" + volation.getMessage())
+                .orElse("Constraint violation occurred");
 
         errorDto.setError(errorMsg);
 
@@ -80,5 +75,4 @@ public class GlobalExceptionHandler {
 
         return new ResponseEntity<>(errorDto, HttpStatus.INTERNAL_SERVER_ERROR);
     }
->>>>>>> Stashed changes
 }
