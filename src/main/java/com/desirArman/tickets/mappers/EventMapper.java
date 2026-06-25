@@ -2,10 +2,9 @@ package com.desirArman.tickets.mappers;
 
 import com.desirArman.tickets.domain.CreateEventRequest;
 import com.desirArman.tickets.domain.CreateTicketTypeRequest;
-import com.desirArman.tickets.domain.dtos.CreateEventRequestDto;
-import com.desirArman.tickets.domain.dtos.CreateEventResponseDto;
-import com.desirArman.tickets.domain.dtos.CreateTicketTypeRequestDto;
+import com.desirArman.tickets.domain.dtos.*;
 import com.desirArman.tickets.domain.entities.Event;
+import com.desirArman.tickets.domain.entities.TicketType;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 
@@ -17,5 +16,9 @@ public interface EventMapper {
     CreateEventRequest fromDto (CreateEventRequestDto dto);
 
     CreateEventResponseDto toDto (Event event);
+
+    ListEventTicketTypeResponseDto toDto (TicketType ticketType);
+
+    ListEventResponseDto toListEventResponseDto (Event event);
 
 }
